@@ -131,4 +131,23 @@ describe("Bank Accounts API", function () {
       });
     });
   });
+
+
+  context("Fare Harbor Extra Credit Scenario", function () {
+    it("Bank account userId must be in the user's avatar", function () {
+      const {avatar: userAvatar} = ctx.authenticatedUser!;
+      const {id: bankAccountId} = ctx.bankAccounts![0];
+      cy.request("GET", `${apiBankAccounts}/${bankAccountId}`).then((response) => {
+        expect(userAvatar).to.contains(response.body.account.userId);
+      });
+    });
+
+    it("Url must be valid", function () {
+      const {avatar: userAvatar} = ctx.authenticatedUser!;
+      cy.request("GET", userAvatar).then((response) => {
+        expect(response.status).to.eq(200);
+      });
+    });
+
+  });
 });

@@ -151,6 +151,8 @@
     "test": "yarn cypress:open",
     "test:headless": "yarn cypress:run",
     "test:api": "yarn cypress:run --spec 'cypress/tests/api/*'",
+    "test:ui": "yarn cypress:run --spec 'cypress/tests/ui/*'",
+    "extraCreditScenario": "yarn cypress:run --spec 'cypress/tests/api/api-bankaccounts.spec.ts'",
     "test:unit": "react-scripts test --runInBand",
     "test:unit:ci": "react-scripts test --watchAll false --ci --runInBand",
     "start:api": "yarn tsnode --files backend/app.ts",
